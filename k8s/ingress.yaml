@@ -1,7 +1,7 @@
-apiVersion: extensions/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: sso-frontend-sk-chen
+  name: sso-frontend-wilson-liao
   labels:
     name: assignment
   annotations:
@@ -9,10 +9,14 @@ metadata:
     # nginx.ingress.kubernetes.io/rewrite-target: /$1
 spec:
   rules:
-    - host: sso-frontend-sk-chen.{namespace_name}.{cluster_name}.en.internal
+    - host: sso-frontend-wilson-liao.assignment.eks004.en.internal
       http:
         paths:
           - path: /
+            pathType: ImplementationSpecific
             backend:
-              serviceName: sso-frontend-sk-chen
-              servicePort: 3000
+              service:
+                name: sso-frontend-wilson-liao
+                port:
+                  # number: 3000
+                  name: http

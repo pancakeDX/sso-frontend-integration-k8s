@@ -1,14 +1,15 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: sso-frontend-sk-chen
+  name: sso-frontend-wilson-liao
   labels:
     name: assignment
 spec:
   type: ClusterIP
   selector:
     component: sso
-    student: sk-chen
+    student: wilson-liao
   ports:
     - port: 3000
+      name: http
       targetPort: 3000

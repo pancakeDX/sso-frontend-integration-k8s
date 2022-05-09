@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: sso-frontend-sk-chen
+  name: sso-frontend-wilson-liao
   labels:
     name: assignment
 spec:
@@ -10,16 +10,16 @@ spec:
   selector:
     matchLabels:
       component: sso
-      student: sk-chen
+      student: wilson-liao
   template:
     metadata:
       labels:
         component: sso
-        student: sk-chen
+        student: wilson-liao
     spec:
       containers:
         - name: static
-          image: ensaas/sso-frontend:v1.0.0
+          image: wilsonliao/sso-frontend:v1.0.1
           ports:
             - containerPort: 3000
           resources:
@@ -30,3 +30,4 @@ spec:
             requests:
               cpu: 10m
               memory: 32Mi
+          imagePullPolicy: Always
